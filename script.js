@@ -1,11 +1,22 @@
+let weapons = {
+    tank: 40,
+    smerch: 60,
+    akm: 10,
+    grad: 2000
+}
 class Player{
-    health = 100
-    username = "Default User"
-    lives = 3
-    currentPosition = "Paris"
+    constructor(username, health, lives, currentPosition, initialDamage, weapon){
+        this.username = username
+        this.health = health
+        this.lives = lives
+        this.currentPosition = currentPosition
+        this.initialDamage = initialDamage
+        this.weapon = weapon
+    }
 
     attack(target){
-        target.health -=10
+        target.health -=this.initialDamage + this.weapon
+        dragon.attack(player)
     }
     run(destination){
         this.currentPosition = destination
@@ -13,16 +24,22 @@ class Player{
 }
 
 class Dragon{
-    health = 1000
-    name = "Ipsum"
-    
+    constructor(name, health, initialDamage, weapon){
+        this.name = name,
+        this.health = health
+        this.initialDamage = initialDamage
+        this.weapon=weapon
+    }
+    initialDamage = 50
+
+   
     attack(target){
-        target.health -=10
+        target.health -=this.initialDamage+this.weapon
     }
 }
 
-let player = new Player()
-let dragon = new Dragon()
+let player = new Player("Josh Smith", 200, 3, "Paris",50, weapons.akm)
+let dragon = new Dragon("Toyota", 4000, 100,weapons.grad)
 
 
 let userHealthbar = document.querySelector(".user-healthbar")
@@ -42,7 +59,7 @@ setInterval(function(){
     userHealthbar.innerHTML = `User Health: ${player.health}`
     dragonHealthbar.innerHTML = `Dragon Health: ${dragon.health}`
 
-},5000)
+},500)
 
 
 
