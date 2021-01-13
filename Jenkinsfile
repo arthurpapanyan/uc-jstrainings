@@ -12,7 +12,7 @@ pipeline {
     stage('Exit') {
       steps {
         sh 'echo "Exit"'
-        echo "${currentBuild.buildCauses}"
+        echo "${currentBuild.buildsCauses}"
       }
     }
 
