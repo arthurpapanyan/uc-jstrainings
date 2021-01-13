@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  
   stages {
     stage('Get Github info') {
       steps {
@@ -11,6 +12,7 @@ pipeline {
     stage('Exit') {
       steps {
         sh 'echo "Exit"'
+        echo "${currentBuild.buildCauses}"
       }
     }
 
