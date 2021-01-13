@@ -12,7 +12,8 @@ pipeline {
     stage('Exit') {
       steps {
         sh 'echo "Exit"'
-        echo "${currentBuild.buildsCauses}"
+        echo "${currentBuild.buildCauses}"
+        echo "${env.CHANGE_AUTHOR}"
       }
     }
 
