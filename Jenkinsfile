@@ -20,8 +20,9 @@ pipeline {
     }   
     stage("Exporting Variables"){
       steps{
-        sh "echo $CHANGE_TARGET"
-        sh "echo $CHANGE_BRANCH"
+       sh"""
+       echo ${env.CHANGE_BRANCH}
+       """
       }
     }
 
