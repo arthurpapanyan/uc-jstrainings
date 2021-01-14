@@ -29,6 +29,7 @@ pipeline {
        ${env.CHANGE_BRANCH}
        
        '''
+       step([$class: 'WsCleanup'])
 
       }
     }
