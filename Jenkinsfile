@@ -21,8 +21,9 @@ pipeline {
     stage("Exporting Variables"){
       steps{
        sh"""
-       echo ${env.CHANGE_BRANCH}
+       echo ${env.BRANCH_NAME}
        export BNAME=${env.BRANCH_NAME} | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
+       export BNAME=${env.GIT_BRANCH} | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
        echo ${env.BNAME}
        """
       }
