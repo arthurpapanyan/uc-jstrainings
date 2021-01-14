@@ -21,14 +21,7 @@ pipeline {
     }   
     stage("Exporting Variables"){
       steps{
-       sh '''
-       echo "JP=$JENKINS_PATH"
-       echo "======="
-       echo "$GIT_BRANCH"
-       echo "$BRANCH_NAME" | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
-       ${env.CHANGE_BRANCH}
-       
-       '''
+
       cleanWs()
 
 
