@@ -22,6 +22,8 @@ pipeline {
       steps{
        sh"""
        echo ${env.CHANGE_BRANCH}
+       BNAME=${env.BRANCH_NAME} | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
+       echo $BNAME
        """
       }
     }
