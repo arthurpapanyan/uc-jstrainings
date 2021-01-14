@@ -24,7 +24,7 @@ pipeline {
        echo "JP=$JENKINS_PATH"
        echo "======="
        echo "$GIT_BRANCH"
-       echo "$BRANCH_NAME"
+       echo "$BRANCH_NAME" | cut -d / -f 2,3
        '''
 
       }
