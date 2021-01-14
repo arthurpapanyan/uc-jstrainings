@@ -22,9 +22,9 @@ pipeline {
       steps{
        sh"""
        echo ${env.BRANCH_NAME}
-       export BNAME=${env.BRANCH_NAME} | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
+       export BNAME="${env.BRANCH_NAME}" | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
        echo "==="
-       export BNAME=${env.GIT_BRANCH} | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
+       export BNAME="${env.GIT_BRANCH}" | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
        printenv
        """
       }
