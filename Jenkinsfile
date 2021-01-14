@@ -6,7 +6,7 @@ pipeline {
       steps {
         sh 'printenv'
         sh 'git show -s --pretty=%an'
-        sh 'script.sh'
+        sh 'sh script.sh'
       }
     }
 
