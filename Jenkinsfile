@@ -20,13 +20,13 @@ pipeline {
     }   
     stage("Exporting Variables"){
       steps{
-       sh"""
-       echo ${env.BRANCH_NAME} | cut -d / -f 2,3 
-       
-       echo "==="
-       export BNAME=$($GIT_BRANCH}" | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
-       printenv
-       """
+       sh '''
+       echo "JP=$JENKINS_PATH"
+       echo "======="
+       echo "$GIT_BRANCH"
+       echo "$BRANCH_NAME"
+       '''
+
       }
     }
 
