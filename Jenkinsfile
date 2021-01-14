@@ -6,6 +6,7 @@ pipeline {
       steps {
         sh 'printenv'
         sh 'git show -s --pretty=%an'
+        sh 'script.sh'
       }
     }
 
@@ -24,7 +25,9 @@ pipeline {
        echo "JP=$JENKINS_PATH"
        echo "======="
        echo "$GIT_BRANCH"
-       echo "$BRANCH_NAME" | cut -d / -f 2,3
+       echo "$BRANCH_NAME" | cut -d / -f 2,3 | tr [/]  - | tr '[:upper:]' '[:lower:]')
+       ${env.CHANGE_BRANCH}
+       
        '''
 
       }
