@@ -15,8 +15,9 @@ pipeline {
     stage('End') {
       steps {
         script{
-          detector()
+          printvars()
         }
+        printvars()
       }
     }   
   }
@@ -26,7 +27,7 @@ def detector(){
   if("${env.CHANGE_TARGET}" == "webhook"){
     sh "echo This is a PR branch"
   }else if("${env.BRANCH_NAME}" == "webhook"){
-    sh "echo"
+    echo "Single Branch Deployed"
   }
 }
 def printvars(){
