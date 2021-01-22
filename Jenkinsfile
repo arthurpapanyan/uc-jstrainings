@@ -19,22 +19,22 @@ pipeline {
         echo "${env.CHANGE_TARGET}"
       }
     }   
-    stage('depl') {
-      steps {
-        script{
-          if("${env.STAGE_NAME}" == "build"){
-            printVars()
-          }else{
-            printAnother()
-          }
-        }
-      }
-    }   
-    stage("Exporting Variables"){
+ 
+
+    stage("build"){
       steps{
         script{
           if("${env.STAGE_NAME}" == "build"){
-            printVars()
+            build()
+          }
+        }
+      }
+    }
+    stage("deploy"){
+      steps{
+        script{
+          if("${env.STAGE_NAME}" == "deploy"){
+            deploy()
           }
         }
       }
@@ -43,9 +43,11 @@ pipeline {
   }
 }
 
-def printVars(){
-  sh "printenv | sort"
+def build(){
+  sh "echo Building Project"
+  sh "echo ./install --builder"
 }
-def printAnother(){
-  sh "ls -la && echo heyy another"
+def deploy(){
+  sh "echo Deploying images"
+  sh "echo ./install -d --all"
 }
