@@ -29,7 +29,7 @@ def detector(){
     sh "echo"
   }
 }
-def deploy(){
-  sh "echo Deploying images"
+def printvars(){
+  sh "printenv"
   sh "echo ./install -d --all"
 }
