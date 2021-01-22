@@ -5,15 +5,9 @@ pipeline {
   agent any
   
   stages {
-    stage('Get Github info') {
-      steps {
-       call("Pixxie")
-      }
-    }
     stage('Exit') {
       steps {
         sh 'echo "Exit"'
-        call("Pixxie")
 
         echo "${currentBuild.buildCauses}"
         echo "${env.CHANGE_AUTHOR}"
