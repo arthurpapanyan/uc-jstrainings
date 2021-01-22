@@ -1,18 +1,18 @@
+ @Library('jenkins-helpers'
 pipeline {
   agent any
   
   stages {
     stage('Get Github info') {
       steps {
-        sh 'printenv'
-        sh 'git show -s --pretty=%an'
-        sh 'sh script.sh'
+       call("Pixxie")
       }
     }
-
     stage('Exit') {
       steps {
         sh 'echo "Exit"'
+        call("Pixxie")
+
         echo "${currentBuild.buildCauses}"
         echo "${env.CHANGE_AUTHOR}"
         echo "${env.CHANGE_BRANCH}"
