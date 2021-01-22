@@ -1,7 +1,5 @@
 pipeline {
-   libraries {
-     lib('jenkins-helpers')
- }
+
   agent any
   
   stages {
