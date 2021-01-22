@@ -1,6 +1,3 @@
-#!groovy
-@Library('jenkins-helpers@master') _
-
 pipeline {
 
   agent any
@@ -9,39 +6,21 @@ pipeline {
     stage('Start') {
       steps {
         sh 'echo "Exit"'
-        libfunc("Exit")
         echo "${currentBuild.buildCauses}"
         echo "${env.CHANGE_BRANCH}"
         echo "${env.CHANGE_TARGET}"
+        detector()
       }
     }   
- 
-
-    stage("build"){
-      steps{
-        script{
-          if("${env.STAGE_NAME}" == "build"){
-            build()
-          }
-        }
-      }
-    }
-    stage("deploy"){
-      steps{
-        script{
-          if("${env.STAGE_NAME}" == "deploy"){
-            deploy()
-          }
-        }
-      }
-    }
-
   }
 }
 
-def build(){
-  sh "echo Building Project"
-  sh "echo ./install --builder"
+def detector(){
+  if(${env.CHANGE_TARGET} == "webhook"){
+    sh "echo This is a PR branch"
+  }else if(${env.BRANCH_NAME} == "webhook"){
+    sh "echo This is a Plain Branch"
+  }
 }
 def deploy(){
   sh "echo Deploying images"
