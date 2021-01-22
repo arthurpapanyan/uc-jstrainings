@@ -12,12 +12,29 @@ pipeline {
 
     stage('Exit') {
       steps {
-        printVars()
+        sh 'echo "Exit"'
+        echo "${currentBuild.buildCauses}"
+        echo "${env.CHANGE_AUTHOR}"
+        echo "${env.CHANGE_BRANCH}"
+        echo "${env.CHANGE_TARGET}"
+      }
+    }   
+    stage('depl') {
+      steps {
+        script{
+          if("${env.STAGE_NAME}" == "build"){
+            printVars()
+          }
+        }
       }
     }   
     stage("Exporting Variables"){
       steps{
-      cleanWs()
+        script{
+          if("${env.STAGE_NAME}" == "build"){
+            printVars()
+          }
+        }
       }
     }
 
