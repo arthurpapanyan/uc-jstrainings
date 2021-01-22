@@ -6,7 +6,7 @@ pipeline {
   agent any
   
   stages {
-    stage('Exit') {
+    stage('Start') {
       steps {
         sh 'echo "Exit"'
 
