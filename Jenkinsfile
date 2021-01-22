@@ -11,7 +11,6 @@ pipeline {
         sh 'echo "Exit"'
         libfunc("Exit")
         echo "${currentBuild.buildCauses}"
-        echo "${env.CHANGE_AUTHOR}"
         echo "${env.CHANGE_BRANCH}"
         echo "${env.CHANGE_TARGET}"
       }
