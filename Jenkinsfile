@@ -12,7 +12,7 @@ pipeline {
 
     stage('Exit') {
       steps {
-        
+        printVars()
       }
     }   
     stage("Exporting Variables"){
