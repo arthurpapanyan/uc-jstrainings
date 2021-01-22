@@ -15,7 +15,7 @@ pipeline {
   }
 }
 
-def detector(){
+void detector(){
   if(${env.CHANGE_TARGET} == "webhook"){
     sh "echo This is a PR branch"
   }else if(${env.BRANCH_NAME} == "webhook"){
