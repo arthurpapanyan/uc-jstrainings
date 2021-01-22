@@ -24,6 +24,8 @@ pipeline {
         script{
           if("${env.STAGE_NAME}" == "build"){
             printVars()
+          }else{
+            printAnother()
           }
         }
       }
@@ -43,4 +45,7 @@ pipeline {
 
 def printVars(){
   sh "printenv | sort"
+}
+def printAnother(){
+  sh "ls -la && echo heyy another"
 }
