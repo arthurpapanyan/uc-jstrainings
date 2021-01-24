@@ -4,7 +4,17 @@ pipeline {
   
   stages {
     stage('Start') {
+      when {
+         anyOf {
+            branch 'feature-branch/*';
+            branch 'master'
+            branch 'webhooks'
+          }
+          allOf{
+            branch 'webhooks'
+          }
       }
+
       steps {
         sh 'echo "Exit"'
         echo "${currentBuild.buildCauses}"
