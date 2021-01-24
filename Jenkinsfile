@@ -5,11 +5,6 @@ pipeline {
   stages {
     stage('Start') {
       when {
-         anyOf {
-            branch 'feature-branch/*';
-            branch 'master'
-            branch 'webhooks'
-          }
           allOf{
             branch 'webhooks'
           }
