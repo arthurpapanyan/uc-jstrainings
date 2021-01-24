@@ -40,5 +40,5 @@ def printvars(){
 }
 
 def buildnot(){
-  build TestNote
+  build job: 'TestNote'
 }
