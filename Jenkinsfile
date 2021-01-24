@@ -4,12 +4,6 @@ pipeline {
   
   stages {
     stage('Start') {
-      when {
-          allOf{
-            branch 'webhooks'
-          }
-      }
-
       }
       steps {
         sh 'echo "Exit"'
