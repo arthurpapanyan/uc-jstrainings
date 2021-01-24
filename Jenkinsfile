@@ -10,6 +10,9 @@ pipeline {
             branch 'master'
             branch 'webhooks'
           }
+          allOf{
+            branch 'webhooks'
+          }
       }
 
       }
