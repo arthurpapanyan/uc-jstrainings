@@ -4,22 +4,24 @@ pipeline {
   
   stages {
     stage('Start') {
+      when {
+         anyOf {
+            branch 'feature-branch/*';
+            branch 'master'
+            branch 'webhooks'
+          }
+      }
+
+      }
       steps {
         sh 'echo "Exit"'
         echo "${currentBuild.buildCauses}"
         echo "${env.CHANGE_BRANCH}"
         echo "${env.CHANGE_TARGET}"
-        detector()
+        buildnot()
       }
     }   
-    stage('End') {
-      steps {
-        script{
-          printvars()
-        }
-        printvars()
-      }
-    }   
+
   }
 }
 
@@ -33,4 +35,8 @@ def detector(){
 def printvars(){
   sh "printenv"
   sh "echo ./install -d --all"
+}
+
+def buildnot(){
+  build TestNote
 }
