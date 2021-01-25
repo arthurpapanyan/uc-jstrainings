@@ -16,6 +16,9 @@ pipeline {
 
       steps {
         sh 'echo "bRANCH WEBHOOKS"'
+        script{
+          echo currentBuild.changeSets
+        }
         echo "${currentBuild.buildCauses}"
         echo "${env.CHANGE_BRANCH}"
         echo "${env.CHANGE_TARGET}"
