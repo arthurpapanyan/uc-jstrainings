@@ -8,7 +8,6 @@ pipeline {
          anyOf {
             branch 'feature-branch/*';
             branch 'master'
-            branch 'webhooks'
           }
           allOf{
             branch 'webhooks'
