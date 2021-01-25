@@ -16,7 +16,7 @@ pipeline {
       }
 
       steps {
-        sh 'echo "Exit"'
+        sh 'echo "bRANCH WEBHOOKS"'
         echo "${currentBuild.buildCauses}"
         echo "${env.CHANGE_BRANCH}"
         echo "${env.CHANGE_TARGET}"
