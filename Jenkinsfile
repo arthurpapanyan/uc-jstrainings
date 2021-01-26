@@ -25,6 +25,13 @@ pipeline {
                 }   
             
             }
+            post{
+              success{
+                script{
+                  notifier()
+                }
+              }
+            }
         }
     
 }
@@ -51,4 +58,15 @@ def build(String packages){
          sh("./install --${params.BUILD_TARGET}")
     }
     
+}
+def notifier(){
+  def stageNumber = "24"
+  def post = new URL("https://hooks.slack.com/services/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").openConnection();
+  def message = "{'blocks':[{'type':'header','text':{'type':'plain_text','text':'Build Complete','emoji':true}},{'type':'section','text':{'type':'mrkdwn','text':'${stageNumber} is successfsullu built'}},{'type':'divider'}]}"
+  post.setRequestMethod("POST")
+  post.setDoOutput(true)
+  post.setRequestProperty("Content-Type", "application/json")
+  post.getOutputStream().write(message.getBytes("UTF-8"));
+  def postRC = post.getResponseCode();
+
 }
