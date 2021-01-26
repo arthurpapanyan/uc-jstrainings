@@ -4,7 +4,7 @@ pipeline {
         string(name: 'API_URL', defaultValue: 'develop', description: '')
         string(name: 'SSO_URL', defaultValue: 'develop', description: '')
         string(name: 'FRONTEND_BRANCH', defaultValue: 'develop', description: '')
-        string(name: 'BUILD_TARGET', defaultValue: '', description: '')
+        string(name: 'BUILD_TARGET', defaultValue: 'default', description: '')
         string(name: 'TRIGGERED', defaultValue: 'Yes', description: '')
      }
      
@@ -48,7 +48,7 @@ def build(String packages){
     if(getChanges().contains("packages/uc-commerce") || packages == "uc-commerce"){
         sh("./install --uc-commerce")
     }else{
-        echo("Nop")
+         sh("./install --${params.BUILD_TARGET}")
     }
     
 }
