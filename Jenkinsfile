@@ -7,6 +7,7 @@ pipeline {
         string(name: 'BUILD_TARGET', defaultValue: '', description: '')
         string(name: 'TRIGGERED', defaultValue: 'Yes', description: '')
      }
+     
     stages{
         stage("Building Sources"){
             when{
@@ -25,7 +26,7 @@ pipeline {
             
             }
         }
-    }
+    
 }
 
 def getChanges(){
