@@ -34,19 +34,21 @@ def getChanges(){
    return change
 }
 
-def build(String package){
-    if(getChanges().contains("packages/accounts") || package = "accounts"){
+def build(String packages){
+    if(getChanges().contains("packages/accounts") || packages == "accounts"){
         sh("./install --accounts")
     }else{
         sh("./install --accounts ${params.TRIGGERED}")
     }
-    if(getChanges().contains("packages/builder" package = "builder")){
+    if(getChanges().contains("packages/builder") || packages == "builder"){
         sh("./install --builder")
     }else{
         sh("./install --builder ${params.TRIGGERED}")
     }
-    if(getChanges().contains("packages/uc-commerce") || package = "uc-commerce"){
+    if(getChanges().contains("packages/uc-commerce") || packages == "uc-commerce"){
         sh("./install --uc-commerce")
+    }else{
+        echo("Nop")
     }
     
 }
