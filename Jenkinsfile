@@ -14,6 +14,7 @@ pipeline {
                 anyOf{
                     branch "develop"
                     branch "master"
+                    branch "newbranch"
                 }
             }
             steps{
