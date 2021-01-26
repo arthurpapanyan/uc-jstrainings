@@ -25,13 +25,12 @@ pipeline {
                 }   
             
             }
-            post{
-              success{
-                script{
-                  notifier()
-                }
-              }
+         post { 
+            always { 
+                echo 'I will always say Hello again!'
+                notifier()
             }
+         } 
         }
     
 }
