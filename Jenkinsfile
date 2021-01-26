@@ -25,14 +25,14 @@ pipeline {
                 }   
             
             }
-         post { 
+        
+        }
+     post { 
             always { 
                 echo 'I will always say Hello again!'
                 notifier()
             }
          } 
-        }
-    
 }
 
 def getChanges(){
