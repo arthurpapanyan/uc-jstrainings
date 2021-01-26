@@ -17,9 +17,9 @@ pipeline {
                 }
             }
             steps{
+              echo "Building"
                 script{
                     build()
-
                 }
 
                 }   
@@ -31,7 +31,6 @@ pipeline {
 
 def getChanges(){
    change = sh(returnStdout: true, script: 'git diff --name-only HEAD^1')
-
    return change
 }
 
