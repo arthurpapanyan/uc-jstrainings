@@ -69,6 +69,6 @@ def notifier(){
   post.setRequestProperty("Content-Type", "application/json")
   post.getOutputStream().write(message.getBytes("UTF-8"));
   def postRC = post.getResponseCode();
-  printl("Notifications Sent")
+  println("Notifications Sent")
 
 }
