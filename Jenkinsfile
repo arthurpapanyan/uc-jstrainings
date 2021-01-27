@@ -21,7 +21,7 @@ pipeline {
               echo "Building Step"
                 script{
                    println(" Installing Sources")
-                   build()
+                   buildPackage()
                 }
 
                 }   
@@ -43,7 +43,7 @@ def getChanges(){
    return change
 }
 
-def build(String packages){
+def buildPackage(String packages){
     if(getChanges().contains("packages/accounts") || packages == "accounts"){
         echo"Accounts change Detected"
         sh("./install --accounts")
