@@ -18,9 +18,10 @@ pipeline {
                 }
             }
             steps{
-              echo "Building"
+              echo "Building Step"
                 script{
-                   println("Building")
+                   println(" Installing Sources")
+                   build()
                 }
 
                 }   
@@ -44,13 +45,18 @@ def getChanges(){
 
 def build(String packages){
     if(getChanges().contains("packages/accounts") || packages == "accounts"){
+        echo"Accounts change Detected"
         sh("./install --accounts")
     }else{
+        echo"Accounts change not Detected"
         sh("./install --accounts ${params.TRIGGERED}")
     }
     if(getChanges().contains("packages/builder") || packages == "builder"){
         sh("./install --builder")
+        echo("Builder change Detected")
+
     }else{
+        echo("Builder change not Detected")
         sh("./install --builder ${params.TRIGGERED}")
     }
     if(getChanges().contains("packages/uc-commerce") || packages == "uc-commerce"){
