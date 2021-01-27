@@ -2,6 +2,7 @@
 
 
 frontend_build(){
+
     for i in "$@" ; do
       case $i in
         "--accounts" )
@@ -14,11 +15,6 @@ frontend_build(){
             cd packages/accounts
             mkdir build/
           ;;
-        "--all" )
-            echo "Building Frontend Services"
-            cd $FRONTEND_PATH/packages/public
-            yarn
-            yarn build
-          ;;
       esac
    done
+}
