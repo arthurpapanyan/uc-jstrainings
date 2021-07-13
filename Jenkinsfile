@@ -7,10 +7,9 @@ pipeline {
         stage('Build') {
             steps {
 script{
-}                meth("act")
+               meth("act")
 
             }
-            echo "done"
         }
 
         stage('Deploy') {
