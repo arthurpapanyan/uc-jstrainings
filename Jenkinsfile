@@ -13,12 +13,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-                sh("echo ls").returnStdout()
-            }
-        }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
