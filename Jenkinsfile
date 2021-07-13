@@ -8,7 +8,7 @@ pipeline {
             steps {
 script{
                meth("act")
-
+}
             }
         }
 
