@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo "Build"
                 script{
-                Builders("Valuation")
+                Builders.call("Valuation")
 
                 }
 
