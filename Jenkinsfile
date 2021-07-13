@@ -1,4 +1,5 @@
 @Library('jenkins-helpers') _
+
 pipeline {
 
     agent any
@@ -8,7 +9,7 @@ pipeline {
             steps {
                 echo "Build"
                 script{
-                info 'Starting'
+                Builders('Starting Jojo')
 
                 }
 
