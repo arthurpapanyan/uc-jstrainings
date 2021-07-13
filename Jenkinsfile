@@ -8,7 +8,7 @@ pipeline {
             steps {
                 echo "Build"
                 script{
-                Builders.info 'Starting'
+                info 'Starting'
 
                 }
 
