@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 script{
-                    gitter()
+                    libfunc()
                 }
             }
         }
