@@ -7,6 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build"
+                log.info 'Starting'
+
             }
         }
 
