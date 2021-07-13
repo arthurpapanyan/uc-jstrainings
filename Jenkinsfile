@@ -6,9 +6,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-                meth("act")
+script{
+}                meth("act")
+
             }
+            echo "done"
         }
 
         stage('Deploy') {
