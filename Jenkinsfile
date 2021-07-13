@@ -7,13 +7,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-               
+                libfunc()
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                gitter()
             }
         }
     }
