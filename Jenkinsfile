@@ -1,5 +1,5 @@
 @Library('jenkins-helpers') _
-
+import jenkins-helpers.Builders
 pipeline {
 
     agent any
