@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo "Build"
                 script{
-                logData("Valuation")
+                call("Valuation")
                 }
 
             }
