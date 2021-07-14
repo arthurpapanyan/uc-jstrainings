@@ -1,7 +1,7 @@
-@Library('jenkins-helpers') _
-import jenkins-helpers.Builders
 pipeline {
-
+    libraries{
+        lib 'jenkins-helpers@master'
+    }
     agent any
 
     stages {
@@ -9,8 +9,7 @@ pipeline {
             steps {
                 echo "Build"
                 script{
-                Builders.call("Valuation")
-
+                logData("Valuation")
                 }
 
             }
