@@ -10,28 +10,28 @@ pipeline {
         }
         stage("build"){
             steps{
-                sh("Building")
+                sh("echo Building")
 
             }
         }
         stage("deploy"){
             steps{
-                sh("Deploying")
+                sh("echo Deploying")
             }
         }
         stage("unit tests"){
             steps{
-                sh("testing")
+                sh("echo testing")
             }
         }
         stage("api tests"){
             steps{
-                sh("Api testing")
+                sh("echo Api testing")
             }
         }
         stage("e2e tests"){
             steps{
-                sh("e2e tests")
+                sh("echo e2e tests")
             }
         }
     }
