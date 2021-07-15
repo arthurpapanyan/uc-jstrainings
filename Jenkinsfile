@@ -4,28 +4,40 @@ pipeline {
     }
     agent any
 
-    stages {
-        stage("env"){
-            steps{
-                sh "printenv | sort"
-            }
-        }
-        stage('Build') {
-            steps {
-                echo "Build"
-                sh """
-                ls -la
-                git branch
-                git log
-                cat branch
-                
-                """
-            }
-        }
+    stages{
 
-        stage('Deploy') {
-            steps {
-                echo "deploy"
+        stage("checkout"){
+            steps{
+                sh("printenv | sort")
+            }
+        }
+        stage("build"){
+            steps(
+                sh("Building")
+            )
+        }
+        stage("deploy"){
+            steps{
+
+sh("Deploying")
+            }
+        }
+        stage("unit tests"){
+            steps{
+sh("testing")
+
+            }
+        }
+        stage("api tests"){
+            steps{
+
+sh("Api testing")
+            }
+        }
+        stage("e2e tests"){
+            steps{
+            sh("e2e tests")
+
             }
         }
     }
