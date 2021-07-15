@@ -6,6 +6,8 @@ pipeline {
 
     stages {
         stage("scm"){
+            steps{
+
               checkout([
         $class: 'GitSCM',
         branches: [[name: 'refs/heads/develop']],
@@ -24,6 +26,8 @@ pipeline {
             ]
         ]]
     ])
+            }
+
         }
         stage('Build') {
             steps {
