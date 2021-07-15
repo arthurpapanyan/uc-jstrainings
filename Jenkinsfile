@@ -42,4 +42,3 @@ sh("Api testing")
         }
     }
 }
-}
