@@ -9,29 +9,32 @@ pipeline {
             }
         }
         stage("build"){
-            steps{
-                sh("echo Building")
-
-            }
+            steps(
+                sh("Building")
+            )
         }
         stage("deploy"){
             steps{
-                sh("echo Deploying")
+
+sh("Deploying")
             }
         }
         stage("unit tests"){
             steps{
-                sh("echo testing")
+sh("testing")
+
             }
         }
         stage("api tests"){
             steps{
-                sh("echo Api testing")
+
+sh("Api testing")
             }
         }
         stage("e2e tests"){
             steps{
-                sh("echo e2e tests")
+            sh("e2e tests")
+
             }
         }
     }
