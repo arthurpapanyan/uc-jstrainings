@@ -1,7 +1,4 @@
 pipeline {
-    libraries{
-        lib 'jenkins-helpers@master'
-    }
     agent any
 
     stages{
