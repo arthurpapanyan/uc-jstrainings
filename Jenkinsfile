@@ -7,16 +7,7 @@ pipeline {
     stages {
         stage("scm"){
             steps{
-
-              checkout([
-        $class: 'GitSCM',
-        branches: [[name: 'refs/heads/develop']],
-        userRemoteConfigs: [[
-            name: 'origin',
-            url: "http://github.com/arthurpapanyan/uc-jstrainings"
-        ]],
-        extensions:
-        [[
+checkout changelog: false, scm: [$class: 'GitSCM', branches: [[name: '*/develop'], [name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[
             $class: 'PreBuildMerge',
             options: [
                 fastForwardMode: 'NO_FF',
@@ -24,17 +15,17 @@ pipeline {
                 mergeStrategy: 'MergeCommand.Strategy',
                 mergeTarget: 'master'
             ]
-        ]]
-    ])
+        ]], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/arthurpapanyan/uc-jstrainings']]]
             }
 
         }
         stage('Build') {
             steps {
                 echo "Build"
-                script{
-                call("Valuation")   
-                }
+                sh """
+                ls -la
+                git branch
+                """
 
             }
         }
