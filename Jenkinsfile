@@ -10,7 +10,7 @@ pipeline {
                git checkout -B newbranch
                echo changes > changes.txt
                git push -u origin newbranch
-               
+               cat .git/config
                """
             }
         }
