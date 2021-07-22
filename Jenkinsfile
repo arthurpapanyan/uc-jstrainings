@@ -7,7 +7,8 @@ pipeline {
             steps{
                 sh("printenv | sort")
                sh"""
-               git checkout newbranch
+               git checkout -B newbranch
+               echo changes > changes.txt
                git push -u origin newbranch
                
                """
